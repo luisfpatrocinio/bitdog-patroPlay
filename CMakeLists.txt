@@ -33,13 +33,14 @@ project(PatroPlay_Test4 C CXX ASM)
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
-# Add executable. Default name is the project name, version 0.1
-
-add_executable(PatroPlay_Test4 
-main.c 
-buttons.c
-analog.c
-utils.c
+# Adiciona o executável com TODOS os nossos arquivos .c
+add_executable(PatroPlay_Test4
+    main.c
+    buttons.c
+    analog.c
+    usb_descriptors.c   
+    patro_joystick.c    
+    utils.c
 )
 
 pico_set_program_name(PatroPlay_Test4 "PatroPlay_Test4")
