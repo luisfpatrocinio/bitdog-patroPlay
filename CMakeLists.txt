@@ -28,35 +28,39 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(PatroPlay C CXX ASM)
+project(PatroPlay_Test4 C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(PatroPlay main.c )
+add_executable(PatroPlay_Test4 
+main.c 
+buttons.c
+analog.c
+utils.c
+)
 
-pico_set_program_name(PatroPlay "PatroPlay")
-pico_set_program_version(PatroPlay "0.1")
+pico_set_program_name(PatroPlay_Test4 "PatroPlay_Test4")
+pico_set_program_version(PatroPlay_Test4 "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(PatroPlay 0)
-pico_enable_stdio_usb(PatroPlay 0)
-
-# Add the standard library to the build
-target_link_libraries(PatroPlay
-        pico_stdlib)
+pico_enable_stdio_uart(PatroPlay_Test4 0)
+pico_enable_stdio_usb(PatroPlay_Test4 0)
 
 # Add the standard include files to the build
-target_include_directories(PatroPlay PRIVATE
+target_include_directories(PatroPlay_Test4 PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
 
-# Add any user requested libraries
-target_link_libraries(PatroPlay 
-        
-        )
+# Adiciona as bibliotecas necessárias ao projeto
+target_link_libraries(PatroPlay_Test4 
+    pico_stdlib
+    hardware_gpio
+    hardware_adc  
+    tinyusb_device
+)
 
-pico_add_extra_outputs(PatroPlay)
+pico_add_extra_outputs(PatroPlay_Test4)
 
