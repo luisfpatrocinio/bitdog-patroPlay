@@ -41,6 +41,7 @@ add_executable(PatroPlay
     usb_descriptors.c   
     patro_joystick.c    
     utils.c
+    led.c
 )
 
 pico_set_program_name(PatroPlay "PatroPlay")
@@ -60,6 +61,7 @@ target_link_libraries(PatroPlay
     pico_stdlib
     hardware_gpio
     hardware_adc  
+    hardware_pwm
     tinyusb_device
 )
 

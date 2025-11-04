@@ -4,22 +4,26 @@
 // Includes hardware libraries
 #include "buttons.h"
 #include "analog.h"
+#include "led.h"
 
 // Includes our joystick module
 #include "patro_joystick.h"
 
 // --- Main Function ---
-int main() {
+int main()
+{
     // Hardware initialization
     stdio_init_all();
     initButtons();
     initAnalog();
+    initLeds();
 
     // USB initialization
     tusb_init();
 
     // Infinite loop
-    while (1) {
+    while (1)
+    {
         // Main TinyUSB task
         tud_task();
 

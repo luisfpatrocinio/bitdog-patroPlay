@@ -1,5 +1,6 @@
 #include "usb_descriptors.h"
 #include <string.h>
+#include "led.h"
 
 // --- HID Report Descriptor (specific to this joystick) ---
 // This is the "instruction manual" that tells the PC how to interpret the data from our joystick.
@@ -120,4 +121,10 @@ uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_t
 void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t const *buffer, uint16_t bufsize)
 {
     // Not used
+}
+
+// Turn ON LED when USB is mounted
+void tud_mount_cb(void)
+{
+    setLedBrightness(LED_GREEN_PIN, 127);
 }
