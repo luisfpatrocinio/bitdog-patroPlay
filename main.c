@@ -5,6 +5,7 @@
 #include "buttons.h"
 #include "analog.h"
 #include "led.h"
+#include "buzzer.h"
 
 // Includes our joystick module
 #include "patro_joystick.h"
@@ -17,6 +18,8 @@ int main()
     initButtons();
     initAnalog();
     initLeds();
+    initBuzzerPWM();
+    playWelcomeTones();
 
     // USB initialization
     tusb_init();

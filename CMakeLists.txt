@@ -42,6 +42,7 @@ add_executable(PatroPlay
     patro_joystick.c    
     utils.c
     led.c
+    buzzer.c
 )
 
 pico_set_program_name(PatroPlay "PatroPlay")
