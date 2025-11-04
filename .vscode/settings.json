@@ -39,6 +39,8 @@
     "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja",
     "files.associations": {
         "buzzer.h": "c",
-        "led.h": "c"
+        "led.h": "c",
+        "string.h": "c",
+        "usb_descriptors.h": "c"
     }
 }
