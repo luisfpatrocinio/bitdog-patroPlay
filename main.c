@@ -1,31 +1,29 @@
-// Arquivo: main.c
-
 #include "pico/stdlib.h"
 #include "tusb.h"
 
-// Inclui as bibliotecas de hardware
+// Includes hardware libraries
 #include "buttons.h"
 #include "analog.h"
 
-// Inclui nosso módulo de joystick
+// Includes our joystick module
 #include "patro_joystick.h"
 
-// --- Função Principal ---
+// --- Main Function ---
 int main() {
-    // Inicialização do hardware
+    // Hardware initialization
     stdio_init_all();
     initButtons();
     initAnalog();
 
-    // Inicialização do USB
+    // USB initialization
     tusb_init();
 
-    // Loop infinito
+    // Infinite loop
     while (1) {
-        // Tarefa principal do TinyUSB (ESSENCIAL)
+        // Main TinyUSB task
         tud_task();
 
-        // Tarefa principal do nosso joystick
+        // Main task of our joystick
         send_hid_report();
     }
 

@@ -1,23 +1,23 @@
-// Arquivo: patro_joystick.c
-
 #include "patro_joystick.h"
 #include "buttons.h"
 #include "analog.h"
 
-// A definição do descritor e os callbacks HID foram movidos para usb_descriptors.c
+// --- Main Joystick Logic ---
 
-// --- Lógica Principal do Joystick ---
-
-void send_hid_report(void) {
-    if (!tud_hid_ready()) {
+void send_hid_report(void)
+{
+    if (!tud_hid_ready())
+    {
         return;
     }
 
     hid_report_t report = {0};
 
     // Lê os botões
-    if (isButtonPressed(BTA)) report.buttons |= (1 << 0);
-    if (isButtonPressed(BTB)) report.buttons |= (1 << 1);
+    if (isButtonPressed(BTA))
+        report.buttons |= (1 << 0);
+    if (isButtonPressed(BTB))
+        report.buttons |= (1 << 1);
 
     // Lê os eixos
     report.x = readAnalogX();
